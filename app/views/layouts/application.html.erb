@@ -19,14 +19,6 @@
       <a href="/login">Login</a>
       <a href="/users/new">Signup</a>
     </div>
-
     <%= yield %>
-
-    <% if session["user_id"] != nil %>
-      <a href="/logout">Logout</a>
-    <% else %>
-      <a href="/login">Login</a> |
-      <a href="/users/new">Sign Up</a>
-    <% end %>
   </body>
 </html>

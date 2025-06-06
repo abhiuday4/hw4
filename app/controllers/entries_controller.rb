@@ -1,5 +1,15 @@
 class EntriesController < ApplicationController
 
+  
+  def index
+    if session["user_id"]
+      @entries = Entry.where({ "user_id" => session["user_id"] })
+    else
+      redirect_to "/login"
+    end
+  end
+
+
   def new
   end
 
