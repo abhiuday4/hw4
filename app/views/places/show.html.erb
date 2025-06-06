@@ -6,8 +6,10 @@
     <div class="col-md-4 mb-4">
       <div class="card h-100">
         <% if entry.uploaded_image.attached? %>
-          <%= image_tag entry.uploaded_image, class: "card-img-top", style: "object-fit: cover; height: 200px;" %> <!-- used chatgpt to help format the image to my preferences-->
-        <% end %>
+         <img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid">
+          <% else %>
+          <img src="<%= entry["image"] %>" class="img-fluid">
+          <% end %> 
         <div class="card-body">
           <h5 class="card-title"><%= entry["title"] %></h5>
           <h6 class="card-subtitle mb-2"><%= entry["occurred_on"] %></h6>
