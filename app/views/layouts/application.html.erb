@@ -9,13 +9,20 @@
     <link rel="stylesheet" href="/stylesheets/application.css">
   </head>
 
+    <% if session["user_id"] %>
+      <% current_user = User.find_by({ "id" => session["user_id"] }) %>
+      <p>Logged in as: <strong><%= current_user["username"] %></strong></p>
+    <% end %>
+
   <body>
     <div>
       <%= flash["notice"] %>
     </div>
     <div>
+    <% if session["user_id"] %>
       <a href="/">Home</a>
       <a href="/logout">Logout</a>
+      <% end %>
       <a href="/login">Login</a>
       <a href="/users/new">Signup</a>
     </div>
