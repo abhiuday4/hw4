@@ -22,11 +22,11 @@
 
     <%= yield %>
 
-    <% if session[:user_id] %>
-      <%= link_to "Logout", logout_path, method: :delete %>
+    <% if session["user_id"] != nil %>
+      <a href="/logout">Logout</a>
     <% else %>
-      <%= link_to "Login", login_path %> |
-      <%= link_to "Sign Up", new_user_path %>
+      <a href="/login">Login</a> |
+      <a href="/users/new">Sign Up</a>
     <% end %>
   </body>
 </html>
