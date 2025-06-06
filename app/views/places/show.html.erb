@@ -1,11 +1,19 @@
 <h1><%= @place["name"] %></h1>
 
 
-<% for entry in @entries %>
-  <h3><%= entry["title"] %></h3>
-  <h5><%= entry["occurred_on"] %></h5>
-  <p><%= entry["description"] %></p>
-<% end %>
+<div class="row">
+  <% for entry in @entries %>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100"> <!-- this controls grid height, necessary? -->
+        <div class="card-body">
+          <h5 class="card-title"><%= entry["title"] %></h5>
+          <h6 class="card-subtitle mb-2"><%= entry["occurred_on"] %></h6>
+          <p class="card-text"><%= entry["description"] %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
 <p>
   <a href="/entries/new?place_id=<%= @place["id"] %>" class="btn btn-dark">New Entry</a>
